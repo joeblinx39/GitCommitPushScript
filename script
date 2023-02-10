@@ -55,5 +55,5 @@ git push
 
 # Task Completed
 echo "Task Completed Successfully, Good Job!!!"
-sleep 3
+sleep 1
 echo "Good bye $(git config user.name)"
