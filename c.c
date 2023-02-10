@@ -2,6 +2,6 @@
 
 int main(void)
 {
-	printf("Hi, let us work together\n")}
-	
-	};
+	printf("Hi, let us work together\n");
+    
+}
