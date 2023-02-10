@@ -29,13 +29,8 @@ do
 		*)
 			echo "Invalid option. Please select a valid text editor."
 			esac
-	done 
-echo "Waiting for file content to be added..."
-while [ ! -s $filename ]; do
-	sleep 2
-done
-
-	else
+	done
+else
 		echo "Aborting script."
 		exit
 fi
