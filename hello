@@ -1,5 +1,0 @@
-#!/bin/bash
-
-filename=$1
-
-gcc -o $filename $filename.c
