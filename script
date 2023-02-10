@@ -3,7 +3,44 @@
 filename=$1
 
 # create a new file with vi
-vi $filename
+touch $filename
+
+if [! -s $filename ]; then
+echo "File is empty. Please add content to file before proceeding."
+read -p "Do you want to add content to the file now? (y/n): " choice
+
+if [ "$choice" = "y" ]; then
+echo "Please select a text editor to add content to file:"
+select text_editor in "vi" "emacs" "nano"
+do
+	case $text_editor in 
+		vi )
+			vi $filename
+			break
+			;;
+		emacs )
+			emacs $filename
+			break
+			;;
+		nano )
+			nano $filename
+			break
+			;;
+		*)
+			echo "Invalid option. Please select a valid text editor."
+			esac
+	done 
+echo "Waiting for file content to be added..."
+while [ ! -s $filename ]; do
+	sleep 2
+done
+
+	else
+		echo "Aborting script."
+		exit
+fi
+fi
+
 
 # change the execute permission for the owner of the file
 chmod u+x $filename
@@ -21,3 +58,7 @@ git commit -m "$commit_message"
 # push the changes to the remote repository
 git push
 
+# Task Completed
+echo "Task Completed Successfully, Good Job!!!"
+sleep 3
+echo "Good bye $(git config user.name)"
