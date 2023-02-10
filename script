@@ -5,7 +5,7 @@ filename=$1
 # create a new file with vi
 touch $filename
 
-if [! -s $filename ]; then
+if [ ! -s $filename ]; then
 echo "File is empty. Please add content to file before proceeding."
 read -p "Do you want to add content to the file now? (y/n): " choice
 
