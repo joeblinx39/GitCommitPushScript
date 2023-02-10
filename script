@@ -1,0 +1,23 @@
+#!/bin/bash
+
+filename=$1
+
+# create a new file with vi
+vi $filename
+
+# change the execute permission for the owner of the file
+chmod u+x $filename
+
+# add the file to git
+git add $filename
+
+# prompt the user for a commit message
+echo "Enter a commit message: "
+read commit_message
+
+# commit the changes to the local repository
+git commit -m "$commit_message"
+
+# push the changes to the remote repository
+git push
+
